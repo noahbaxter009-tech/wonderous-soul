@@ -16,19 +16,3 @@ jobs:
 
     steps:
       - name: Check out project
-        uses: actions/checkout@v5
-
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
-          workdir: .
-          command: buildozer android debug
-          buildozer_version: stable
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: WonderousSoul-APK
-          path: bin/*.apk
-          if-no-files-found: error
